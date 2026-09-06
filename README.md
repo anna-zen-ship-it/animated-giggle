@@ -52,6 +52,29 @@ The Anna & Ren Podcast is a space for:
 🌸 Welcome to the Anna & Ren Podcast repo — a creative sandbox where fictional voices bring real inspiration to life.
 ## 🎧 Demo Mode
 🔗 [Try the Demo on Google AI Studio](https://aistudio.google.com/apps/f09d1c85-7f91-4cb4-aa8f-d82c577d8fdb?showAssistant=true&showPreview=true)
+---
+
+## ⚠️ Known Limitations
+
+### Gemini 3.1 Flash TTS Quota
+- **Quota Limit**: Flash TTS มีข้อจำกัดการใช้งาน (429 Too Many Requests) เมื่อถึงจำนวนครั้งสูงสุดต่อวัน  
+- **Fallback Behavior**: เมื่อ quota หมด ระบบจะสลับไปใช้ **Acoustic Narration Fallback** โดยอัตโนมัติ  
+- **Reset Cycle**: Quota จะรีเซ็ตทุก 24 ชั่วโมง
+
+### Demo Mode vs. Live API
+- **Demo Mode**: ใช้ environment variable (`DEMO_MODE="true"`) หรือ request payload (`forceDemo: true`) เพื่อจำลองผลลัพธ์  
+- **Live API**: หากมี `GEMINI_API_KEY` ระบบจะเรียก Gemini 3.1 Flash TTS จริง  
+- **Fallback Handling**: หาก API call ล้มเหลว ระบบจะกลับไปใช้ Demo Mode หรือ Acoustic narration
+
+### Vite Dev Server / WebSocket
+- **Error**: `[vite] failed to connect to websocket (Error: WebSocket closed without opened.)`  
+- **Cause**: เกิดจาก dev server crash, network block, หรือ client เชื่อมต่อก่อน server พร้อม  
+- **Impact**: Hot‑reload อาจไม่ทำงาน แต่การ preview หลักยังคงทำงานได้  
+- **Workaround**: Restart dev server (`npm run dev`), ตรวจสอบ port (5173), และเพิ่ม error handling สำหรับ WebSocket
+
+---
+
+✨ หมายเหตุ: Repo giggle เป็น **playground** สำหรับการทดลอง narration และ TTS จึงอาจพบ error หรือ fallback ได้เป็นเรื่องปกติ — *เสียงหัวเราะเบา ๆ แม้จะ error* 🌿
 
 🌿 *This project runs in Demo Mode — safe to explore, no real API calls, no costs. *
 Animated Giggle — A playful repo for creative experiments, narration drafts, and demo links. 

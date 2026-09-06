@@ -50,3 +50,7 @@ The Anna & Ren Podcast is a space for:
 ---
 
 🌸 Welcome to the Anna & Ren Podcast repo — a creative sandbox where fictional voices bring real inspiration to life.
+## 🎧 Demo Mode
+🔗 [Try the Demo on Google AI Studio](https://aistudio.google.com/apps/f09d1c85-7f91-4cb4-aa8f-d82c577d8fdb?showAssistant=true&showPreview=true)
+
+🌿 *This project runs in Demo Mode — safe to explore, no real API calls, no costs. *
